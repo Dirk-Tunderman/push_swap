@@ -6,7 +6,7 @@
 /*   By: dtunderm <dtunderm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:38:49 by dtunderm          #+#    #+#             */
-/*   Updated: 2022/12/10 15:29:27 by dtunderm         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:06:15 by dtunderm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ typedef struct  s_list
 
 
 int push_swap(int argc, char **argv);
+int lstsize(t_list *last);
+
+t_list  *passing_list(t_list **list_a, int argc, char **argv);
+t_list  *order_list(t_list **list_a, t_list **list_b);
 
 
 
