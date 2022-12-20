@@ -1,7 +1,6 @@
 NAME = libpush.a
 
-SOURCES =	push_swap.c begin_list.c order_list.c
-
+SOURCES =	push_swap.c ft_liblist.c sorting_algo.c swap_functions.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
