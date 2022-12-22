@@ -6,7 +6,7 @@
 /*   By: dtunderm <dtunderm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:38:49 by dtunderm          #+#    #+#             */
-/*   Updated: 2022/12/20 18:28:00 by dtunderm         ###   ########.fr       */
+/*   Updated: 2022/12/22 16:17:47 by dtunderm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ typedef struct  s_list
 int         push_swap(int argc, char **argv);
 int         lstsize(t_list *last);
 int	        ft_largest(t_list **list);
+int         ft_largest_index(t_list **list_a);
 
 t_list	    *ft_lstnew(int content);
 t_list	    *ft_lstlast(t_list *lst);
+t_list	    *ft_lstnew_plus(t_list **list);
 
 void        passing_list(t_list **list, int argc, char **argv);
 void        ft_lstadd_back(t_list **alst, t_list *new);
@@ -40,8 +42,8 @@ void        sorting_algo(t_list **list_a, t_list **list_b);
 void        sa(t_list **list_a);
 void        sb(t_list **list_b);
 void        ss(t_list **list_a, t_list **list_b);
-void        pa(t_list **list_a, t_list **list_b, t_list **head);
-void        pb(t_list **list_a, t_list **list_b, t_list **head_b);
+void        pa(t_list **list_a, t_list **list_b);
+void        pb(t_list **list_a, t_list **list_b);
 void        ra(t_list **list_a);
 void        rb(t_list **list_b);
 void        rra(t_list **list_a);

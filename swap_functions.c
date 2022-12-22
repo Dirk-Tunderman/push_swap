@@ -38,27 +38,53 @@ void    ss(t_list **list_a, t_list **list_b) // swap eerste 2 a en  b tegelijk. 
     printf("ss\n");
 }
 
-void    pa(t_list **list_a, t_list **list_b, t_list **head_a) // neem de eerste van b en stop het in de top van a
+
+void    pa(t_list **list_a, t_list **list_b) // neem de eerste van b en stop het in de top van a
 {
-    if (!list_b)
-        return ;
+    t_list *head_a;
+    t_list *head_b;
+    t_list *temp;
+
+    head_a = *list_a;
+    head_b = *list_b;
+    temp = *list_b;
+    *list_b = head_b->next;
+    if (!(*list_a))
+    {
+        head_a = temp;
+        head_a->next = NULL;
+        *list_a = head_a;
+    }
     else
     {
-        (*head_a)->next = (*list_b);
-        (*list_b)->next = *list_a;
+        temp->next = head_a;
+        (*list_a) = temp;
     }
     printf("pa\n");
 }
 
-void    pb(t_list **list_a, t_list **list_b, t_list **head_b) // neem de eerste van a en stop het in de top van b
+void    pb(t_list **list_a, t_list **list_b) // neem de eerste van a en stop het in de top van b
 {
-    if (!list_a)
-        return ;
+    t_list *head_a;
+    t_list *head_b;
+    t_list *temp;
+
+    head_a = *list_a;
+    head_b = *list_b;
+    temp = *list_a;
+    *list_a = head_a->next;
+    if (!(*list_b))
+    {
+        head_b = temp;
+        head_b->next = NULL;
+        *list_b = head_b;
+    }
     else
     {
-        (*head_b)->next = (*list_a);
-        (*list_a)->next = *list_b;
+        temp->next = head_b;
+        (*list_b) = temp;
     }
+
     printf("pb\n");
 }
 

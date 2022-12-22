@@ -24,7 +24,7 @@ int get_min(t_list **list_a)
     while (head)
     {
        // printf("head is: %d\n", head->content);
-        if (min > head->content && head->index == 0)
+        if (min > head->content && head->index == -1)
             min = head->content;
         head = head->next;
     }
@@ -52,7 +52,7 @@ void    give_index(t_list **list_a)
     t_list *temp;
 
     min = 0;
-    index = 1;
+    index = 0;
     temp = *list_a;
     head = *list_a;
     while (*list_a)
@@ -75,26 +75,22 @@ int push_swap(int argc, char **argv)
 {
     t_list *list_a;
     t_list *list_b;
-    t_list *head_a;
-    t_list *head_b;
+    t_list *head;
 
     list_a = NULL;
     list_b = NULL;
-    head_a = malloc(sizeof(t_list));
-    head_b = malloc(sizeof(t_list));
-    head_a->next = list_a;
-    head_b->next = list_b; 
-
 
 
     passing_list(&list_a, argc, argv);
     give_index(&list_a);
-    // while (list_a)
+    head = list_a;
+    // while (head)
     // {
-    //     printf("content: %d  ", list_a->content);
-    //     printf("index: %d\n", list_a->index);
-    //     list_a = list_a->next;
+    //     printf("content: %d  ", head->content);
+    //     printf("index: %d\n", head->index);
+    //     head = head->next;
     // }
+    list_a = head;
     sorting_algo(&list_a, &list_b);
     return (0);
 }
