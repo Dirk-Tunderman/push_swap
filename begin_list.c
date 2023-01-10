@@ -11,21 +11,19 @@ t_list    *create_list(t_list **list_a)
 
 int lstsize(t_list *last)
 {
-    int i;
+    int     i;
     t_list *temp;
 
     temp = last;
     i = 0;
-    if (temp != NULL) // doet deze eerst
+    if (temp != NULL)
     {
         i++;
-        //printf("%d\n", temp->content);
         temp = temp->next;
     }
     while (temp != last)
     {
         i++;
-        //printf("%d\n", temp->content);
         temp = temp->next;
     }
 
@@ -50,7 +48,6 @@ void  *create_fill_list(t_list **list_a, char *num, t_list **last)
         (*list_a)->next = (*last)->next;
         (*last)->next = *list_a;
     }
-
     return (*list_a);
 }
 
@@ -64,9 +61,7 @@ t_list  *passing_list(t_list **list_a, int argc, char **argv)
     while (i < argc)
     {
         create_fill_list(list_a, argv[i], &last);
-        //printf("%d\n", (*list_a)->content);
         i++;
     }
-    printf("size is: %d\n", lstsize(last));
     return (*list_a);
 }

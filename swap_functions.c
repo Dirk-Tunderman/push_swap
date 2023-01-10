@@ -38,7 +38,6 @@ void    ss(t_list **list_a, t_list **list_b) // swap eerste 2 a en  b tegelijk. 
     printf("ss\n");
 }
 
-
 void    pa(t_list **list_a, t_list **list_b) // neem de eerste van b en stop het in de top van a
 {
     t_list *head_a;
@@ -84,7 +83,6 @@ void    pb(t_list **list_a, t_list **list_b) // neem de eerste van a en stop het
         temp->next = head_b;
         (*list_b) = temp;
     }
-
     printf("pb\n");
 }
 

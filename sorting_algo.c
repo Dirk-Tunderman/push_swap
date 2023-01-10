@@ -78,16 +78,64 @@ void    ft_sort_three(t_list **list_a)
     }
 }
 
-void    ft_sort_five(t_list **list_a, t_list **list_b)
+int    find_first(t_list **list_a)
 {
-    printf("goed into 5 major:%p%p\n\n\n", *list_a, *list_b);
+    t_list *head;
+    int i;
+    
+    head = *list_a;
+    i = 0;
+    while (*list_a)
+    {
+        if (((*list_a)->index == 1))
+            break;
+        *list_a = (*list_a)->next;
+        i++;
+    }
+    *list_a = head;
+    return (i);
 }
 
 void    ft_sort_four(t_list **list_a, t_list **list_b)
 {
-    printf("%p%p\n\n\n\n\n", *list_a, *list_b);
+    int i;
+    
+    i = find_first(list_a);
+    if (i == 1)
+        ra(list_a);
+    else if (i == 2)
+    {
+        rra(list_a);
+        rra(list_a);
+    }
+    else if (i == 3)
+        rra(list_a);
+    pb(list_a, list_b);
+    ft_sort_three(list_a);
+    pa(list_a, list_b);
 }
 
+void    ft_sort_five(t_list **list_a, t_list **list_b)
+{
+    int i;
+    int size;
+
+    size = lstsize(*list_a);
+    i = 0;
+    while (i < size)
+    {
+        if ((*list_a)->content == 1 || (*list_a)->content == 2)
+            pb(list_a, list_b);
+        else
+            ra(list_a);
+        i++;
+    }
+    if ((*list_b)->content < (*list_b)->next->content)
+        rb(list_b);
+    ft_sort_three(list_a);
+    while (*list_b)
+        pa(list_a, list_b);
+}
 
 int get_max_bits(t_list **list_a)
 {
@@ -95,63 +143,44 @@ int get_max_bits(t_list **list_a)
     int i;
 
     max_index = ft_largest_index(list_a);
-    //printf("max is: %d\n", max_index);
     i = 0;
     while (max_index > 0)
     {
         max_index = max_index / 2;
         i++;
     }
-
     return (i);
 }
 
 void    ft_major_sort(t_list **list_a, t_list **list_b)
 {
-    
-    int max_bits;
-    int i;
-    int j;
-    t_list *head;
-    int size;
+    t_list *head; 
+    int     max_bits;
+    int     i;
+    int     j;
+    int     size;
 
     head = *list_a;
     size = lstsize(head);
     j = 0;
     i = 0;
     max_bits = get_max_bits(&head);
-   // printf("list_a pointer at: %d\n", (*list_a)->index);
     head = *list_a;
     while (i < max_bits)
     {
-        //*list_a = head;
         j = 0;
         while (j < size)
         {
-            //printf("komt to hier\n");
-            //*list_a = head;
             if ((((*list_a)->index >> i) & 1) == 1)
-            {
-                //printf("list_a: %d\n", (*list_a)->index);
-                ra(list_a);
-                //printf("list_b: %d\n", (*list_b)->index);  
-            }
+                ra(list_a); 
             else
-            {
-                //printf("list_a to b: %d\n", (*list_a)->index);
                 pb(list_a, list_b);
-            }
             j++;
         }
         while (lstsize(*list_b) > 0)
-        {
             pa(list_a, list_b);
-            //printf("list_a in second loop: %d\n", (*list_a)->index);
-        }
-       // printf("list_a at the eeeend: %d\n", (*list_a)->index);
         i++;
     }
-   // *list_a = head;
 
     while (*list_a)
     {

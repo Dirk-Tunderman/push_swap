@@ -27,17 +27,17 @@ t_list	*ft_lstnew_plus(t_list **list)
 	return (rtn);
 } 
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *t;
+	t_list *temp;
 
-	if (*alst)
+	if (*lst)
 	{
-		t = ft_lstlast(*alst);
-		t->next = new;
+		temp = ft_lstlast(*lst);
+		temp->next = new;
 	}
 	else
-		*alst = new;
+		*lst = new;
 }
 
 t_list	*ft_lstlast(t_list *lst)
@@ -85,18 +85,13 @@ int	ft_largest(t_list **list)
 
 int ft_largest_index(t_list **list_a)
 {
-	int max = ft_largest(list_a);
+	int max;
 	int index;
 
 	index = 0;
-	//printf("largest in index: %d\n", max);
-
+	max = ft_largest(list_a);
 	while ((*list_a)->content != max)
-	{
 		(*list_a) = (*list_a)->next;
-	}
-	
 	index = (*list_a)->index;
 	return (index);
-
 }
