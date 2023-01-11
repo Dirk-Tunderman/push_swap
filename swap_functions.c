@@ -8,7 +8,7 @@ void    sa(t_list **list_a) // swap eerste 2 van stack a werkt.
     temp = (*list_a)->content;
     (*list_a)->content = (*list_a)->next->content;
     (*list_a)->next->content = temp;
-    printf("sa\n");
+    ft_printf("sa\n");
 }
 
 void    sb(t_list **list_b) // swap eerste 2 van stack b wrkt.
