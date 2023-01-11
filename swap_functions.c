@@ -8,7 +8,7 @@ void    sa(t_list **list_a) // swap eerste 2 van stack a werkt.
     temp = (*list_a)->content;
     (*list_a)->content = (*list_a)->next->content;
     (*list_a)->next->content = temp;
-    ft_printf("sa\n");
+    ft_print("sa\n");
 }
 
 void    sb(t_list **list_b) // swap eerste 2 van stack b wrkt.
@@ -19,7 +19,7 @@ void    sb(t_list **list_b) // swap eerste 2 van stack b wrkt.
     temp = (*list_b)->content;
     (*list_b)->content = (*list_b)->next->content;
     (*list_b)->next->content = temp;
-    printf("sb\n");
+    ft_print("sb\n");
 
 }
 
@@ -35,7 +35,7 @@ void    ss(t_list **list_a, t_list **list_b) // swap eerste 2 a en  b tegelijk. 
     temp = (*list_b)->content;
     (*list_b)->content = (*list_b)->next->content;
     (*list_b)->next->content = temp;
-    printf("ss\n");
+    ft_print("ss\n");
 }
 
 void    pa(t_list **list_a, t_list **list_b) // neem de eerste van b en stop het in de top van a
@@ -59,7 +59,7 @@ void    pa(t_list **list_a, t_list **list_b) // neem de eerste van b en stop het
         temp->next = head_a;
         (*list_a) = temp;
     }
-    printf("pa\n");
+    ft_print("pa\n");
 }
 
 void    pb(t_list **list_a, t_list **list_b) // neem de eerste van a en stop het in de top van b
@@ -83,7 +83,7 @@ void    pb(t_list **list_a, t_list **list_b) // neem de eerste van a en stop het
         temp->next = head_b;
         (*list_b) = temp;
     }
-    printf("pb\n");
+    ft_print("pb\n");
 }
 
 void    ra(t_list **list_a) //schuif alle van a een naar boven, werkt.
@@ -97,7 +97,7 @@ void    ra(t_list **list_a) //schuif alle van a een naar boven, werkt.
     (*list_a)->next = NULL;
     (*list_a) = head_a;
 
-    printf("ra\n");
+    ft_print("ra\n");
 }
 
 void    rb(t_list **list_b) //schuif alle van a een naar boven, werkt.
@@ -110,7 +110,7 @@ void    rb(t_list **list_b) //schuif alle van a een naar boven, werkt.
     last->next = *list_b;
     (*list_b)->next = NULL;
     (*list_b) = head_b;
-    printf("rb\n");
+    ft_print("rb\n");
 }
 
 void    rr(t_list **list_b, t_list **list_a) //schuif alle van a een naar boven, werkt.
@@ -129,7 +129,7 @@ void    rr(t_list **list_b, t_list **list_a) //schuif alle van a een naar boven,
     last->next = *list_b;
     (*list_b)->next = NULL;
     (*list_b) = head;
-    printf("rr\n");
+    ft_print("rr\n");
 }
 
 void    rra(t_list **list_a)
@@ -147,7 +147,7 @@ void    rra(t_list **list_a)
     }
     last->next = (*list_a);
     (*list_a) = last;
-    printf("rra\n");
+    ft_print("rra\n");
 }
 
 void    rrb(t_list **list_b)
@@ -165,7 +165,7 @@ void    rrb(t_list **list_b)
     }
     last->next = (*list_b);
     (*list_b) = last;
-    printf("rrb\n");
+    ft_print("rrb\n");
 }
 
 void    rrr(t_list **list_a, t_list **list_b)
@@ -194,5 +194,5 @@ void    rrr(t_list **list_a, t_list **list_b)
     }
     last->next = (*list_b);
     (*list_b) = last;
-    printf("rrr\n");
+    ft_print("rrr\n");
 }
