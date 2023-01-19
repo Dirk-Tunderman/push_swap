@@ -1,9 +1,21 @@
-#include "pushlib.h"
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_liblist.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dtunderm <dtunderm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/13 13:25:32 by dtunderm          #+#    #+#             */
+/*   Updated: 2023/01/13 15:47:20 by dtunderm         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+#include "ftprintf/ft_printf.h"
 
 t_list	*ft_lstnew(int content)
 {
-	t_list *rtn;
+	t_list	*rtn;
 
 	rtn = (t_list *)malloc(sizeof(t_list));
 	if (!rtn)
@@ -12,11 +24,11 @@ t_list	*ft_lstnew(int content)
 	rtn->index = -1;
 	rtn->content = content;
 	return (rtn);
-} 
+}
 
 t_list	*ft_lstnew_plus(t_list **list)
 {
-	t_list *rtn;
+	t_list	*rtn;
 
 	rtn = (t_list *)malloc(sizeof(t_list));
 	if (!rtn)
@@ -25,11 +37,11 @@ t_list	*ft_lstnew_plus(t_list **list)
 	rtn->index = (*list)->index;
 	rtn->content = (*list)->content;
 	return (rtn);
-} 
+}
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	if (*lst)
 	{
@@ -53,23 +65,23 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-int lstsize(t_list *lst)
+int	lstsize(t_list *lst)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (lst != NULL)
-    {
-        lst = lst->next;
-        i++;
-    }
-    return (i);
+	i = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
 
 int	ft_largest(t_list **list)
 {
-	int largest;
-	t_list *head;
+	int		largest;
+	t_list	*head;
 
 	head = *list;
 	largest = 0;
@@ -83,10 +95,10 @@ int	ft_largest(t_list **list)
 	return (largest);
 }
 
-int ft_largest_index(t_list **list_a)
+int	ft_largest_index(t_list **list_a)
 {
-	int max;
-	int index;
+	int	max;
+	int	index;
 
 	index = 0;
 	max = ft_largest(list_a);
