@@ -6,7 +6,7 @@
 /*   By: dtunderm <dtunderm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:12 by dtunderm          #+#    #+#             */
-/*   Updated: 2023/01/19 15:36:33 by dtunderm         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:44:46 by dtunderm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,28 @@ int	error_check_double(t_list **list_a)
 	}
 	*list_a = head;
 	return (1);
+}
+
+int	ft_is_sorted(t_list **list_a)
+{
+	t_list	*head;
+	int		i;
+
+	head = *list_a;
+	i = -1;
+	while (*list_a)
+	{
+		if ((*list_a)->index > i)
+		{
+			i = (*list_a)->index;
+			(*list_a) = (*list_a)->next;
+		}
+		else
+		{
+			(*list_a) = head;
+			return (1);
+		}
+	}
+	*list_a = head;
+	return (0);
 }

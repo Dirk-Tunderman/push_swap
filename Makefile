@@ -1,11 +1,9 @@
-NAME = push_swap.a
+NAME = libpush.a
 
 SOURCES =	push_swap.c ft_liblist.c sorting_algo.c swap_functions.c error_check.c \
-			ft_is_sorted.c
+			swap_functions_2.c sort_little.c ft_liblist_2.c make_list.c \
 
 OBJECTS = $(SOURCES:.c=.o)
-
-all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	make -C ./ftprintf
